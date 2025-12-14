@@ -21,7 +21,7 @@ app.use("/attendance", attendanceRoutes);
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3006;
 app.listen(PORT, async () => {
   await ensureTable();
   console.log(`Server running on port ${PORT}`);
