@@ -3,6 +3,7 @@ const { pool } = require("../connection");
 const { upload, uploadFolder } = require("../upload");
 const path = require("path");
 const fs = require("fs");
+const uploadMiddleware = require("./middleware")
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ function asyncHandler(fn) {
 
 router.post(
   "/",
-  upload.single("tiket"),
+  uploadMiddleware,
   asyncHandler(async (req, res) => {
     const { company, name, kehadiran } = req.body;
     const tiket = req.file ? req.file.filename : null;
